@@ -62,6 +62,18 @@ class CalorieTracker {
         const remaining = this._calorieLimit - this._totalCalories;
 
         caloriesRemainingEl.innerHTML = remaining;
+
+        if (remaining <= 0) {
+            caloriesRemainingEl.parentElement.parentElement.classList.remove
+            ('bg-light');
+            caloriesRemainingEl.parentElement.parentElement.classList.add
+            ('bg-danger');
+        }else {
+            caloriesRemainingEl.parentElement.parentElement.classList.remove
+            ('bg-danger');
+            caloriesRemainingEl.parentElement.parentElement.classList.add
+            ('bg-light');
+        }
     }
 
     _displayCalorieProgress() {
@@ -126,7 +138,7 @@ class App {
         // Validate Inputs
         
         if (name.value === '' || calories.value === '') {
-            alert('Please in all fields ');
+            alert('Please in all fields');
             return;
         }
         if (type === 'meal') {
@@ -138,18 +150,14 @@ class App {
             this._tracker.addWorkout(Workout);
         }
 
-
-
-
-
         name.value = '';
         calories.value = '';
 
 
         const collapseItem = document.getElementById(`collapse-${type}`);
-        const bsCollapse = new bootstrap.Collpase(collapseItem, ( 
-            toggle: true,  
-        ));
+        const bsCollapse = new bootstrap.Collapse(collapseItem, {
+            toggle: true,
+        } );
 
 
     }
