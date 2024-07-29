@@ -1,7 +1,7 @@
 {
   "name": "tracalorie",
   "version": "1.0.0",
-  "description": "",
+  "description": "This is a simple calorie counter app built with vanilla JavaScript. It tracks your meals and workouts and calculates the total calories burned and consumed.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
